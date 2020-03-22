@@ -110,14 +110,11 @@ window.addEventListener("dblclick", function() {
         gui = new GUI();
         
         let currentObject = INTERSECTED
+
+        params.color = "#" + currentObject.object.material.color.getHexString()
         
-        console.log(INTERSECTED);
         gui.add(params, "color").onChange((value) => {
-            console.log(currentObject)
-            // renderer.setClearColor(value);
             currentObject.object.material.color.set(value)
-            // INTERSECTED.object.material.color.set(value)
-            animate();
         });
         
         let tempPosition = new THREE.Vector3(
