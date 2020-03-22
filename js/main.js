@@ -11,6 +11,7 @@ var params = {
 };
 
 const sceneURL = "../models/girl/girl.gltf";
+const sceneURL3 = "../models/girl_2/scene.gltf";
 
 const sceneURL2 =
     "https://cdn.glitch.com/9488457d-447d-44b2-b029-3ca998dec3ef%2FBox.glb?v=1584255677433";
@@ -34,10 +35,18 @@ var light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
 scene.add(light);
 
 let girl = new GLTFObject(sceneURL, scene, camera, renderer);
+let girl2 = new GLTFObject(sceneURL3, scene, camera, renderer);
 
 girl.init(function(scene) {
     console.log(scene);
     girl.setScale(0.01);
+});
+
+girl2.init(function(scene) {
+    console.log(scene);
+    girl2.setScale(0.15);
+    girl2.setPosition(2, 2, 5)
+    girl2.rotate(0,Math.PI,0)
 });
 
 let box = new GLTFObject(sceneURL2, scene);
@@ -137,7 +146,7 @@ window.addEventListener("dblclick", function() {
     }
 });
 
-animate();
+// animate();
 
 function onMouseMove(event) {
     // calculate mouse position in normalized device coordinates
